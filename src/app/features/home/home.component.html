@@ -1,0 +1,32 @@
+<div class="[&>section]:[border:2px_solid]">
+    <section class="grid place-content-center border border-gray-500 min-h-screen">
+        <div class="space-y-4 text-center">
+            <p class="px-4 title">
+                Olá, eu sou <span class="font-medium">{{fullName}}</span>.<br/>Sou um <span class="font-medium">{{role}}</span>.
+            </p>
+            <p class="px-4 text-[clamp(0.875rem,0.696rem+0.893vw,1.125rem)]">Apaixonado por soluções de tecnologia, desenvolvedor focado, detalhista, perfeccionista. Prazer!</p>
+            <button type="button" class="border border-gray-400 px-4 py-2 rounded">Veja meus projectos </button>
+        </div>
+    </section>
+    <nav class="sticky top-0">
+        <ul class="flex gap-x-4">
+            <li *ngFor="let link of internalLinks">
+                <a (click)="scrollToSection($event)">{{link.text}}</a>
+            </li>
+        </ul>
+    </nav>
+    <section class="p-4 space-y-8">
+        <h1 class="text-4xl title text-center my-8">Projectos</h1>
+        <div class="flex justify-center">
+            <div class="flex gap-x-2 overflow-auto px-4 -mx-4 [&::-webkit-scrollbar]:hidden">
+                <button type="button" class="border border-black/40 rounded-sm px-4 py-1 whitespace-nowrap"
+                *ngFor="let category of projectCategories; index as i" (click)="selectProjectCategory(i)">{{category}}</button>
+            </div>
+        </div>
+        <!-- {{selectedProjectCategory}} -->
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(17.5em,20rem))] justify-center gap-4">
+            <app-project-card *ngFor="let project of projects" class="border border-black/50 rounded" />
+        </div>
+    </section>
+
+</div>
