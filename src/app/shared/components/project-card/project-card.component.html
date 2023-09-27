@@ -1,8 +1,10 @@
-<div class="relative">
-    <img src="" alt="project-thumbnail" />
-    <div class="text-center pb-8">
-        <p class="font-medium">Título do Projecto</p>
-        <p class="mb-4">Tecnologias</p>
-        <button type="button" class="button">Ver detalhes</button>
+<div class="relative rounded-md overflow-hidden h-full [&:hover_div]:[transform:translateX(0)] [&:hover_div]:[opacity:1]">
+    <img [src]="thumbnailPath" class="object-cover object-center w-full h-full" alt="project-thumbnail" />
+    <div class="flex flex-col items-center justify-between text-center py-9 absolute inset-0 bg-white/75 -translate-x-full opacity-0 transition-[transform,opacity] ease-out duration-[300ms]">
+        <div>
+            <p class="font-medium text-xl mb-1">{{ title }}</p>
+            <p class="">{{ usedSkillsList }}</p>
+        </div>
+        <button type="button" class="border border-black/40 px-3 py-1.5 rounded hover:bg-gray-800 hover:text-white transition-colors">Ver detalhes</button>
     </div>
 </div>

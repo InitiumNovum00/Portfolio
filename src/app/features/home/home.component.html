@@ -1,11 +1,11 @@
-<div class="[&>section]:[border:2px_solid]">
+<div class="[&>section]:[border:2px_solid] pb-20">
     <section class="grid place-content-center border border-gray-500 min-h-screen">
         <div class="space-y-4 text-center">
             <p class="px-4 title">
                 Olá, eu sou <span class="font-medium">{{fullName}}</span>.<br/>Sou um <span class="font-medium">{{role}}</span>.
             </p>
             <p class="px-4 text-[clamp(0.875rem,0.696rem+0.893vw,1.125rem)]">Apaixonado por soluções de tecnologia, desenvolvedor focado, detalhista, perfeccionista. Prazer!</p>
-            <button type="button" class="border border-gray-400 px-4 py-2 rounded">Veja meus projectos </button>
+            <button type="button" class="border border-gray-400 px-4 py-2 hover:!border-dark-gray hover:bg-dark-gray hover:text-white rounded transition-colors">Veja meus projectos </button>
         </div>
     </section>
     <nav class="sticky top-0">
@@ -16,7 +16,7 @@
         </ul>
     </nav>
     <section class="p-4 space-y-8">
-        <h1 class="text-4xl title text-center my-8">Projectos</h1>
+        <h1 class="text-4xl title text-center my-8 font-semibold">Projectos</h1>
         <div class="flex justify-center">
             <div class="flex gap-x-2 overflow-auto px-4 -mx-4 [&::-webkit-scrollbar]:hidden">
                 <button type="button" class="border border-black/40 rounded-sm px-4 py-1 whitespace-nowrap"
@@ -24,8 +24,22 @@
             </div>
         </div>
         <!-- {{selectedProjectCategory}} -->
-        <div class="grid grid-cols-[repeat(auto-fit,minmax(17.5em,20rem))] justify-center gap-4">
-            <app-project-card *ngFor="let project of projects" class="border border-black/50 rounded" />
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(17rem,21.25rem))] justify-center gap-3 max-w-[65.5rem] mx-auto">
+            <app-project-card *ngFor="let project of projects" class="aspect-[5/4]"
+            [id]="project.id" [thumbnailPath]="project.thumbnailPath" [title]="project.title" [usedSkills]="project.usedSkills"/>
+        </div>
+    </section>
+
+    <section class="p-4">
+        <div class="max-w-lg mx-auto text-center">
+            <h1 class="text-4xl title text-center mt-8 mb-3 font-semibold">Contacto</h1>
+            <p class="mb-12 text-[clamp(0.875rem,0.696rem+0.893vw,1.125rem)] font-light">Tem alguma questão ou quer trabalhar comigo? <br /> Não hesite em <span class="font-normal">contactar-me</span>.</p>
+            <form action="" class="flex flex-col gap-y-1.5">
+                <input type="text" placeholder="Seu nome" class="border border-black/10 px-4 py-3 rounded outline-none" />
+                <input type="email" placeholder="Seu email" class="border border-black/10 px-4 py-3 rounded outline-none" />
+                <textarea type="text" placeholder="Sua mensagem aqui..." class="h-48 resize-none border border-black/10 px-4 py-3 rounded outline-none"></textarea>
+                <button type="button" class="button w-44 hover:!border-dark-gray hover:bg-dark-gray hover:text-white block ml-auto transition-colors">Enviar</button>
+            </form>
         </div>
     </section>
 
